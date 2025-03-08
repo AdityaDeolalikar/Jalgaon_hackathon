@@ -1,9 +1,14 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { MessageSquare, Users, Brain, Target, Sparkles, Trophy } from "lucide-react"
+import Chatbot from "./Chatbot"
 
 const features = [
   {
-    title: "AI Chatbot",
+    title: "Stress Level Detection Chatbot",
     description: "Get instant help and guidance with our intelligent AI assistant",
     icon: MessageSquare,
   },
@@ -35,6 +40,9 @@ const features = [
 ]
 
 export default function FeatureCards() {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false)
+  const router = useRouter()
+
   return (
     <section className="py-20 px-4 md:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -45,7 +53,19 @@ export default function FeatureCards() {
           {features.map((feature) => {
             const Icon = feature.icon
             return (
-              <Card key={feature.title} className="bg-card hover:bg-accent/5 transition-colors">
+              <Card 
+                key={feature.title} 
+                className="bg-card hover:bg-accent/5 transition-colors cursor-pointer"
+                onClick={() => {
+                  if (feature.title === "Stress Level Detection Chatbot") {
+                    setIsChatbotOpen(true)
+                  } else if (feature.title === "Community Forums") {
+                    router.push('/community-forum')
+                  } else if (feature.title === "Smart Learning") {
+                    router.push('/smart-learning')
+                  }
+                }}
+              >
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="p-2 rounded-lg bg-primary/10">
@@ -62,6 +82,7 @@ export default function FeatureCards() {
           })}
         </div>
       </div>
+      <Chatbot isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
     </section>
   )
 } 

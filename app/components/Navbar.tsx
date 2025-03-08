@@ -147,20 +147,7 @@ const Navbar = () => {
           </div>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              href="/login"
-              className="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              href="/signup"
-              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-            >
-              Sign Up
-            </Link>
-          </div>
+          
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -257,20 +244,6 @@ const Navbar = () => {
                 Contact Us
               </Link>
 
-              <div className="pt-4 space-y-2">
-                <Link
-                  href="/login"
-                  className="block w-full px-4 py-2 text-center text-gray-700 hover:text-purple-600 border border-gray-300 rounded-lg transition-colors"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/signup"
-                  className="block w-full px-4 py-2 text-center text-white bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors"
-                >
-                  Sign Up
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}

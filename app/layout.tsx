@@ -16,7 +16,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "EduTech Platform",
+  title: "PeakMindAI Platform",
   description: "An innovative educational technology platform",
 };
 
